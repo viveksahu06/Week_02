@@ -1,0 +1,25 @@
+package com.oops.practice_problems.ridehailing;
+
+public class Car extends Vehicle implements GPS{
+    private String currentLocation;
+    //constructor to initialize
+    public Car(String vehicleId, String driverName, double ratePerKm) {
+        super(vehicleId, driverName, ratePerKm);
+        this.currentLocation = "Unknown";
+    }
+    //override to get current location
+    @Override
+    public String getCurrentLocation() {
+        return currentLocation;
+    }
+    //override to get updated location
+    @Override
+    public void updateLocation(String newLocation) {
+    this.currentLocation = newLocation;
+    }
+    //override to calculate fare
+    @Override
+    public double calculateFare(double distance) {
+        return distance*getRatePerKm();
+    }
+}
